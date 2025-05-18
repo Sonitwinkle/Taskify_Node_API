@@ -11,8 +11,7 @@ exports.register = async (req, res) => {
   try {
     const user = new User(req.body);
     await user.save();
-    const token = generateToken(user._id);
-    res.status(201).send({ user, token });
+    res.status(201).send({ user});
   } catch (e) {
     res.status(400).send(e);
   }
